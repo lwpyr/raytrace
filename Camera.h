@@ -38,10 +38,10 @@ public:
     Canvas canvas;
 
 private:
-    int scan_x;
-    int scan_y;
-    int last_x;
-    int last_y;
+    int scan_x = 0;
+    int scan_y = 0;
+    int last_x = 0;
+    int last_y = 0;
     float dx;
     float dy;
 };

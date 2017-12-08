@@ -13,7 +13,6 @@ public:
     ~Pixel2() = default;
     void operator+(Color3 lightColor);
     void average();
-private:
     unsigned int ray_count = 0;
     Color3 color = Color3(0,0,0);
 };

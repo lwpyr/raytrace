@@ -5,9 +5,11 @@
 #ifndef RAY_TRACER_RENDER_H
 #define RAY_TRACER_RENDER_H
 
+#include "Canvas.h"
 
 class Render {
-
+public:
+    static void openglRender(const Canvas& c);
 };
 
 

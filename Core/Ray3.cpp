@@ -23,7 +23,7 @@ void Ray3::setOrigin(const Vector3& o){
 }
 
 void Ray3::setDirection(const Vector3& d){
-    direction = d;
+    direction = d.normalize();
 }
 
 Vector3 Ray3::getDirection() const

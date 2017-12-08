@@ -28,10 +28,10 @@ Ray3 Camera::generateRay(bool &working) {
     last_x = scan_x;
     last_y = scan_y;
 
-    float rate_x = (scan_x+0.5)*dx - 0.5;
-    float rate_y = (scan_y+0.5)*dy - 0.5;
+    float rate_x = 2*(scan_x+0.5)*dx - 1;
+    float rate_y = 2*(scan_y+0.5)*dy - 1;
 
-    Vector3 direction = (rate_x*rightDirection+rate_y*upDirection+frontDirection);
+    Vector3 direction = (rate_x*v_ref_len*rightDirection+rate_y*h_ref_len*upDirection+frontDirection);
 
 
     scan_x++;

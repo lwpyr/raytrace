@@ -24,6 +24,7 @@ public:
     void light_hit(float x, float y, const Color3& color);
     void light_hit(Vector2& v, const Color3& color);
     void finish();
+    Color3 sample(int x, int y) const;
 };
 
 

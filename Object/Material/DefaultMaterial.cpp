@@ -12,8 +12,8 @@ DefaultMaterial::DefaultMaterial() {
 
 Color3 DefaultMaterial::sample(const Ray3& ray,const LightRay3& light, const Vector3& position,const Vector3& normal){
     Color3 resultColor(0,0,0);
-    float NdotL= normal*ray.getDirection();  
-    if (NdotL >= 0)  
-        resultColor=resultColor + light.color*NdotL;  
+    float NdotL= normal*light.getDirection();
+    if (NdotL > 0)
+        resultColor=resultColor + light.color*NdotL;
     return resultColor;
 }

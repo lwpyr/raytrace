@@ -26,3 +26,7 @@ void Canvas::finish() {
         }
     }
 }
+
+Color3 Canvas::sample(int x, int y) const{
+    return _canvas[y][x].color;
+}

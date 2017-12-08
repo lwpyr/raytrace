@@ -17,15 +17,16 @@ private:
     vector<LightSource*> light_src_list;
     vector<Object*> obj_list;
     Camera* camera;
+
+    Color3 recursive(Ray3& ray, int times, Color3& result, float decay);
+    static Intersection ray_with_objs(Ray3& ray, vector<Object*>& objs);
 public:
     Tracer() = default;
     Tracer(vector<LightSource*>& _light, vector<Object*>& _obj, Camera* _cam);
     ~Tracer() = default;
 
-    static Intersection ray_with_objs(Ray3& ray, vector<Object*>& objs);
     void Scan(int times);
-    Color3 recusive(Ray3& ray, int times, Color3& result, float decay);
-    const static float epsilon;
+    void render();
 };
 
 

@@ -27,6 +27,10 @@ add_executable(tracer
         Render.cpp
         Render.h
         Object/Material/DefaultMaterial.h
-        Object/Material/DefaultMaterial.cpp)
+        Object/Material/DefaultMaterial.cpp
+        Object/InfinitePlane.cpp
+        Object/InfinitePlane.h
+        Object/LightSource/SunLight.cpp
+        Object/LightSource/SunLight.h Object/Material/Phong.cpp Object/Material/Phong.h)
 target_link_libraries(tracer ${CMAKE_EXE_LINKER_FLAGS})
 message(${PROJECT_SOURCE_DIR})
