@@ -11,7 +11,7 @@ class DefaultMaterial: public Material {
 public:
     DefaultMaterial();
     virtual ~DefaultMaterial() = default;
-    virtual Color3 sample(const Ray3& ray,const LightRay3& light, const Vector3& position,const Vector3& normal);
+    virtual Color3 sample(const Ray3& ray,const LightRay3* light, const float distance,const Vector3& normal);
 };
 
 

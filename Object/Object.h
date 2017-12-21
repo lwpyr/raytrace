@@ -13,7 +13,9 @@ class Object {
 public:
     Object() = default;
     virtual ~Object() = default;
-    virtual Intersection isIntersected(const Ray3& RAY)=0;
+    virtual Intersection isIntersected(const Ray3& RAY){
+        return Intersection();
+    };
     virtual Vector3 getNormal(Vector3 point)=0;
     Material* material;
 };

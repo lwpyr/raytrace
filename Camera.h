@@ -18,7 +18,7 @@ public:
     void setCanvas(int width, int height);
 
     // this two functions must be used in pairs !!!
-    Ray3 generateRay(bool& working);
+    Ray3 generateRay(bool& working, int& x, int& y);
     void recieveColor(Color3& color);
 
     void resetScan();

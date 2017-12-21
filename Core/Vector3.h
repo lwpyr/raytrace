@@ -6,6 +6,7 @@
 #define RAY_TRACER_VECTOR3_H
 
 #include <cmath>
+#include <iostream>
 #define PI 3.1415926
 #define MIN(x,y) (x)>(y)?(y):(x);
 #define MAX(x,y) (x)>(y)?(x):(y);
@@ -59,6 +60,9 @@ public:
 
     // project
     Vector3 project(Vector3& v) const;
+
+    // show
+    friend std::ostream& operator<<(std::ostream&out, Vector3 &v);
 
     // x,y,z
     float x;

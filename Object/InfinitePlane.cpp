@@ -20,13 +20,16 @@ Intersection InfinitePlane::isIntersected(const Ray3 &ray) {
     float vn = v*normal;
     float dn = d*normal;
     if(dn!=0){
+        Vector3 temp_normal = normal;
+        if(dn>0)
+            temp_normal = -normal;
         float distance = - vn/dn;
-        if(distance>1e-4){
+        if(distance>1e-4&&distance<ray.max_distance){
             result.isHit=1;
             result.object = this;
             result.distance = distance;
             result.position = ray.getPoint(distance);
-            result.normal = this->normal;
+            result.normal = temp_normal;
             return result;
         }
     }

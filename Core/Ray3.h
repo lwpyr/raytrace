@@ -16,7 +16,6 @@ public:
     // constructor and destructor
     Ray3() = default;
     Ray3(const Vector3& o, const Vector3& d);
-    Ray3(const Ray3& r);
     ~Ray3() = default;
 
     // set ray origin
@@ -25,12 +24,15 @@ public:
     // set ray direction
     void setDirection(const Vector3& d);
 
-    //IntersectResult intersectWith(std::vector<CObject*>& obj_list);
+    // reverse
+    Ray3 operator-();
 
     // utils
     Vector3 getOrigin() const;
     Vector3 getDirection() const;
     Vector3 getPoint(const double& t) const;
+
+    float max_distance = 100000000;
 
 };
 

@@ -5,16 +5,13 @@
 #include "SunLight.h"
 
 SunLight::SunLight(const Vector3 &dir, const Color3& c) {
-    direction = dir;
+    direction = dir.normalize();
     color = c;
 }
 
-LightRay3 SunLight::traceLight(Vector3 &v) {
-    return LightRay3(v,-direction,color);
-}
-
-Intersection SunLight::isIntersected(const Ray3 &RAY) {
-    return Intersection();
+LightRay3* SunLight::traceLight(Vector3 v) {
+    LightRay3* p = new LightRay3(v,-direction,color);
+    return p;
 }
 
 Vector3 SunLight::getNormal(Vector3 point) {

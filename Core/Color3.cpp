@@ -19,9 +19,11 @@ void Color3::operator+=(const Color3 &c){
 Color3 Color3::operator*(float s) const {
     return Color3(r*s, g*s, b*s);
 }
-Color3 Color3::operator*(const Color3&c) const
-{
+Color3 Color3::operator*(const Color3&c) const {
     return Color3(r*c.r, g*c.g, b*c.b);
+}
+Color3 Color3::operator/(float c) const {
+    return Color3(r/c, g/c, b/c);
 }
 void Color3::saturate()
 {

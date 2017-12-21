@@ -13,8 +13,7 @@ private:
 public:
     SunLight(const Vector3& dir, const Color3& c);
     virtual ~SunLight() = default;
-    virtual LightRay3 traceLight(Vector3& v);
-    virtual Intersection isIntersected(const Ray3& RAY);
+    virtual LightRay3* traceLight(Vector3 v);
     virtual Vector3 getNormal(Vector3 point);
 };
 

@@ -18,7 +18,7 @@ private:
     vector<Object*> obj_list;
     Camera* camera;
 
-    Color3 recursive(Ray3& ray, int times, Color3& result, float decay);
+    Color3 recursive(Ray3& ray, int times, float decay, float& distance);
     static Intersection ray_with_objs(Ray3& ray, vector<Object*>& objs);
 public:
     Tracer() = default;

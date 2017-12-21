@@ -13,8 +13,8 @@ add_executable(tracer
         Object/Object.h
         Intersection.h
         Object/Material/Material.h
-        Core/LightRay3.cpp
-        Core/LightRay3.h Camera.cpp
+        Object/Light/LightRay3.cpp
+        Object/Light/LightRay3.h Camera.cpp
         Camera.h
         Canvas.cpp
         Canvas.h
@@ -31,6 +31,52 @@ add_executable(tracer
         Object/InfinitePlane.cpp
         Object/InfinitePlane.h
         Object/LightSource/SunLight.cpp
-        Object/LightSource/SunLight.h Object/Material/Phong.cpp Object/Material/Phong.h)
+        Object/LightSource/SunLight.h
+        Object/Material/Phong.cpp
+        Object/Material/Phong.h
+        Object/Sphere.cpp
+        Object/Sphere.h
+        Object/Triangle.cpp
+        Object/Triangle.h Object/Light/PointLightRay3.cpp Object/Light/PointLightRay3.h Object/LightSource/PointLightSource.cpp Object/LightSource/PointLightSource.h)
+
+add_executable(UnitTest
+        UnitTest.cpp
+        Core/Vector3.cpp
+        Core/Vector3.h
+        Core/Ray3.cpp
+        Core/Ray3.h
+        Core/Color3.cpp
+        Core/Color3.h
+        Object/Object.h
+        Intersection.h
+        Object/Material/Material.h
+        Object/Light/LightRay3.cpp
+        Object/Light/LightRay3.h Camera.cpp
+        Camera.h
+        Canvas.cpp
+        Canvas.h
+        Core/Pixel2.cpp
+        Core/Pixel2.h
+        Core/Vector2.h
+        Object/LightSource/LightSource.h
+        Tracer.cpp
+        Tracer.h
+        Render.cpp
+        Render.h
+        Object/Material/DefaultMaterial.h
+        Object/Material/DefaultMaterial.cpp
+        Object/InfinitePlane.cpp
+        Object/InfinitePlane.h
+        Object/LightSource/SunLight.cpp
+        Object/LightSource/SunLight.h
+        Object/Material/Phong.cpp
+        Object/Material/Phong.h
+        Object/Sphere.cpp
+        Object/Sphere.h
+        Object/Triangle.cpp
+        Object/Triangle.h
+        Object/Light/PointLightRay3.cpp Object/Light/PointLightRay3.h)
+
 target_link_libraries(tracer ${CMAKE_EXE_LINKER_FLAGS})
+target_link_libraries(UnitTest ${CMAKE_EXE_LINKER_FLAGS})
 message(${PROJECT_SOURCE_DIR})

@@ -89,3 +89,7 @@ float Vector3::getDist(Vector3& v) const {
 Vector3 Vector3::project(Vector3 &v) const {
     return Vector3(x*v.x,y*v.y,z*v.z);
 }
+
+std::ostream& operator<<(std::ostream &out, Vector3 &v) {
+    out<<'('<<v.x<<' '<<v.y<<' '<<v.z<<')';
+}

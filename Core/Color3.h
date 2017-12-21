@@ -24,6 +24,7 @@ public:
     void operator+=(const Color3& c);
     Color3 operator*(float s) const;
     Color3 operator*(const Color3& c) const;
+    Color3 operator/(float c) const;
     void operator/=(float s);
 
     // max value 255

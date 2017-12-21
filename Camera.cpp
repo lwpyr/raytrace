@@ -23,10 +23,13 @@ void Camera::setCanvas(int width, int height) {
     dy = 1.0/height;
 }
 
-Ray3 Camera::generateRay(bool &working) {
+Ray3 Camera::generateRay(bool &working, int& x, int& y) {
 
     last_x = scan_x;
     last_y = scan_y;
+
+    x = last_x;
+    y = last_y;
 
     float rate_x = 2*(scan_x+0.5)*dx - 1;
     float rate_y = 2*(scan_y+0.5)*dy - 1;
