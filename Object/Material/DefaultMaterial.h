@@ -12,6 +12,7 @@ public:
     DefaultMaterial();
     virtual ~DefaultMaterial() = default;
     virtual Color3 sample(const Ray3& ray,const LightRay3* light, const float distance,const Vector3& normal);
+
 };
 
 

@@ -4,6 +4,8 @@
 
 #include "Render.h"
 #include <GLFW/glfw3.h>
+#include <opencv2/opencv.hpp>
+using namespace cv;
 
 void Render::openglRender(const Canvas &c) {
 
@@ -49,4 +51,19 @@ void Render::openglRender(const Canvas &c) {
         glfwPollEvents();
     }
     glfwTerminate();
+}
+
+void Render::opencvRender(const Canvas &c) {
+    string window = "Ray tracing demo";
+    Mat image(c.H, c.W, CV_8UC3);
+
+    for (int row = 0; row < image.rows; row++){
+        for (int col = 0; col < image.cols; col++)
+        {
+            Color3 temp_c = c.sample(col,c.H-row-1);
+            image.at<Vec3b>(row,col) = Vec3b(temp_c.b, temp_c.g, temp_c.r);
+        }
+    }
+    imshow(window,image);
+    cvWaitKey();
 }

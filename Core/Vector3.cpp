@@ -4,12 +4,6 @@
 
 #include "Vector3.h"
 
-Vector3::Vector3(const Vector3& v){
-    x = v.x;
-    y = v.y;
-    z = v.z;
-}
-
 Vector3::Vector3(float X, float Y, float Z):x(X),y(Y),z(Z){
 
 }

@@ -26,7 +26,7 @@ public:
     ~Tracer() = default;
 
     void Scan(int times);
-    void render();
+    void render(string);
 };
 
 

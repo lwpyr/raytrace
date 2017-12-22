@@ -16,7 +16,6 @@ public:
     // constructor and destructor
     Vector3() = default;
     Vector3(float X, float Y, float Z);
-    Vector3(const Vector3& v);
     ~Vector3() = default;
 
     // vector plus vector

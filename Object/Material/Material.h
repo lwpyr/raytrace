@@ -13,8 +13,11 @@ public:
     virtual ~Material() = default;
     virtual Color3 sample(const Ray3& ray,const LightRay3* light, const float distance,const Vector3& normal)=0;
     float reflectivity;
+    float trace_reflectivity;
     float refractivity;
     float n;
+    Color3 ambient;
+    void set_trace_ref(float f){trace_reflectivity = f;}
 };
 
 

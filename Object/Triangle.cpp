@@ -51,7 +51,7 @@ Intersection Triangle::isIntersected(const Ray3 &ray) {
                           -d.x*(p1.y-o.y)*(p1.z-p2.z)
                           -(p1.x-o.x)*(p1.y-p2.y)*d.z
                           -(p1.x-p2.x)*d.y*(p1.z-o.z))/A;
-            if(beta>1e-3&&gamma>1e-3&&beta+gamma<1-1e-3){
+            if(beta>0&&gamma>0&&beta+gamma<1){
                 result.isHit=1;
                 result.object = this;
                 result.distance = t;

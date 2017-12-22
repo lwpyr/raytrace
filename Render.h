@@ -10,6 +10,7 @@
 class Render {
 public:
     static void openglRender(const Canvas& c);
+    static void opencvRender(const Canvas& c);
 };
 
 
