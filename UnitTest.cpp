@@ -11,9 +11,9 @@
 #include "Object/Material/Phong.h"
 #include "Object/Triangle.h"
 using namespace std;
-int main(){
+int main(int argc, char* argv[]){
     Camera *cam = new Camera(Vector3(0,0,50),Vector3(0,0,-1),Vector3(0,1,0),40,40);
-    cam->setCanvas(600,600);
+    cam->setCanvas(1000,1000);
 
     InfinitePlane *plane1 = new InfinitePlane(Vector3(0,-10,0),Vector3(0,1,0));
     InfinitePlane *plane2 = new InfinitePlane(Vector3(-15,0,0),Vector3(1,0,0));
@@ -24,21 +24,21 @@ int main(){
     PointLightSource *light2 = new PointLightSource(Vector3(0,0,60),Color3(255,255,255));
 
     //*********************material init
-    DefaultMaterial *material1 = new DefaultMaterial();
-    Phong *material2 = new Phong(Color3(135.0/125,206.0/125, 250.0/80), Color3(1,1,1), 24);
-    material2->trace_reflectivity = 0.3;
-    material2->ambient = Color3(10,10,10);
+    Phong *material2 = new Phong(Color3(0), Color3(1), 256, 1, 1);
+    material2->trace_reflectivity = 0.4;
+    material2->n = 1.6;
+    material2->ambient = Color3(0,0,0);
 
-    Phong *material3 = new Phong(Color3(255.0/120, 192.0/120, 203.0/120), Color3(1,1,1), 16);
-    material3->trace_reflectivity =0;
+    Phong *material3 = new Phong(Color3(1), Color3(1,1,1), 16, 0.4);
+    material3->trace_reflectivity =0.4;
     material3->ambient = Color3(20,20,20);
 
-    Phong *material4 = new Phong(Color3(152.0/250 ,251.0/250, 152.0/250), Color3(1,1,1), 16, 0.2);
-    material4->trace_reflectivity =0;
+    Phong *material4 = new Phong(Color3(1), Color3(1,1,1), 16, 0.4);
+    material4->trace_reflectivity =0.4;
     material4->ambient = Color3(20,20,20);
 
-    Phong *material5 = new Phong(Color3(238.0/100, 220.0/100, 130.0/100), Color3(1,1,1), 16, 0.2);
-    material5->trace_reflectivity =0;
+    Phong *material5 = new Phong(Color3(1), Color3(1,1,1), 16, 0.4);
+    material5->trace_reflectivity =0.4;
     material5->ambient = Color3(40,40,40);
     //******************* material
     plane1->material = material3;
@@ -52,19 +52,20 @@ int main(){
     vector<LightSource*> v_light;
 
     v_obj.push_back(plane1);
-    //v_obj.push_back(plane2);
-    //v_obj.push_back(plane3);
+    v_obj.push_back(plane2);
+    v_obj.push_back(plane3);
     v_obj.push_back(sphere1);
 
     v_light.push_back(light1);
-    //v_light.push_back(light2);
-    //v_light.push_back(light3);
 
     Tracer *tracer = new Tracer(v_light,v_obj,cam);
 
     tracer->Scan(2);
-    tracer->render("opencv");
 
+    if(argc>1)
+        tracer->render(argv[1]);
+    else
+        tracer->render("opencv");
 
     return 0;
 }

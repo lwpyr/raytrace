@@ -4,6 +4,6 @@
 
 #include "PointLightRay3.h"
 
-Color3 PointLightRay3::get_color(float distance) const{
-    return color/(1+distance*distance/100);
+Color3 PointLightRay3::get_color(double distance) const{
+    return color/(1+distance*distance/1500);
 }

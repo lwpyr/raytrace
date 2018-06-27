@@ -9,14 +9,14 @@
 
 class Phong: public Material {
 public:
-    Phong(const Color3& _diffuse,const Color3& _specular, float shininess,float reflect = 0.4, float refract = 0);
+    Phong(const Color3& _diffuse,const Color3& _specular, double shininess,double reflect = 0.4, double refract = 0);
     ~Phong() = default;
-    virtual Color3 sample(const Ray3& ray,const LightRay3* light, const float distance,const Vector3& normal);
+    virtual Color3 sample(const Ray3& ray,const LightRay3* light, const double distance,const Vector3& normal);
 
 private:
     Color3   diffuse;
     Color3   specular;
-    float   shininess;
+    double   shininess;
 };
 
 

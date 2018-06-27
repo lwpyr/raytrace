@@ -11,7 +11,7 @@
 class LightRay3: public Ray3 {
 public:
     LightRay3()= default;
-    virtual Color3 get_color(float distance) const;
+    virtual Color3 get_color(double distance) const;
     LightRay3(Vector3 origin, Vector3 dir, Color3 color);
     LightRay3(Ray3 ray, Color3 color);
 

@@ -9,7 +9,7 @@
 
 class PointLightRay3: public LightRay3{
 public:
-    virtual Color3 get_color(float distance) const;
+    virtual Color3 get_color(double distance) const;
     PointLightRay3(Vector3 origin, Vector3 dir, Color3 color):LightRay3(origin, dir, color){}
     PointLightRay3(Ray3 ray, Color3 color):LightRay3(ray, color){}
 

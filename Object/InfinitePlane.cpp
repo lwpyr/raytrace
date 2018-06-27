@@ -17,20 +17,20 @@ Intersection InfinitePlane::isIntersected(const Ray3 &ray) {
     Intersection result;
     Vector3 v = ray.getOrigin() - refPoint;
     Vector3 d = ray.getDirection();
-    float vn = v*normal;
-    float dn = d*normal;
+    double vn = v*normal;
+    double dn = d*normal;
     if(dn!=0){
         Vector3 temp_normal = normal;
         if(dn>0)
             temp_normal = -normal;
-        float distance = - vn/dn;
+        double distance = - vn/dn;
         if(distance>1e-4&&distance<ray.max_distance){
             result.isHit=1;
             result.object = this;
             result.distance = distance;
             result.position = ray.getPoint(distance);
             result.normal = temp_normal;
-            return result;
         }
     }
+    return result;
 }

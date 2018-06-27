@@ -4,8 +4,16 @@
 
 #include "Color3.h"
 
-Color3::Color3(float R,float G,float B):r(R),g(G),b(B){
+Color3::Color3(double R,double G,double B){
+    r = R;
+    g = G;
+    b = B;
+}
 
+Color3::Color3(double f) {
+    r = f;
+    g = f;
+    b = f;
 }
 
 Color3 Color3::operator+(const Color3 &c){
@@ -16,13 +24,13 @@ void Color3::operator+=(const Color3 &c){
     r += c.r; g += c.g; b += c.b;
 }
 
-Color3 Color3::operator*(float s) const {
+Color3 Color3::operator*(double s) const {
     return Color3(r*s, g*s, b*s);
 }
 Color3 Color3::operator*(const Color3&c) const {
     return Color3(r*c.r, g*c.g, b*c.b);
 }
-Color3 Color3::operator/(float c) const {
+Color3 Color3::operator/(double c) const {
     return Color3(r/c, g/c, b/c);
 }
 void Color3::saturate()
@@ -32,7 +40,7 @@ void Color3::saturate()
     b = b>255.0?255.0:b;
 }
 
-void Color3::operator/=(float s) {
+void Color3::operator/=(double s) {
     r /= s;
     g /= s;
     b /= s;

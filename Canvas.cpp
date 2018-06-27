@@ -11,7 +11,7 @@ Canvas::Canvas(int width, int height) {
     H = height;
 }
 
-void Canvas::light_hit(float x, float y, const Color3 &color) {
+void Canvas::light_hit(double x, double y, const Color3 &color) {
     _canvas[y][x].operator+(color);
 }
 

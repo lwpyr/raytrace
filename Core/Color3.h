@@ -10,22 +10,23 @@ class Color3
 {
 public:
     // R,G,B value
-    float r;
-    float g;
-    float b;
+    double r;
+    double g;
+    double b;
 
     // constructor and destructor
     Color3() = default;
-    Color3(float _r,float _g,float _b);
+    Color3(double _r,double _g,double _b);
+    Color3(double f);
     virtual ~Color3() = default;
 
     // common operations
     Color3 operator+(const Color3& c);
     void operator+=(const Color3& c);
-    Color3 operator*(float s) const;
+    Color3 operator*(double s) const;
     Color3 operator*(const Color3& c) const;
-    Color3 operator/(float c) const;
-    void operator/=(float s);
+    Color3 operator/(double c) const;
+    void operator/=(double s);
 
     // max value 255
     void saturate();

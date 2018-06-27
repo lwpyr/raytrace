@@ -19,33 +19,33 @@ Intersection Triangle::isIntersected(const Ray3 &ray) {
     Intersection result;
     Vector3 o = ray.getOrigin();
     Vector3 d = ray.getDirection();
-    float dn = d*normal;
+    double dn = d*normal;
     if(dn!=0){
         Vector3 temp_normal = normal;
         if(dn>0)
             temp_normal = -normal;
-        float A = (p1.x-p2.x)*(p1.y-p3.y)*d.z
+        double A = (p1.x-p2.x)*(p1.y-p3.y)*d.z
                   +(p1.x-p3.x)*d.y*(p1.z-p2.z)
                   +d.x*(p1.y-p2.y)*(p1.z-p3.z)
                   -d.x*(p1.y-p3.y)*(p1.z-p2.z)
                   -(p1.x-p3.x)*(p1.y-p2.y)*d.z
                   -(p1.x-p2.x)*d.y*(p1.z-p3.z);
 
-        float t = ((p1.x-p2.x)*(p1.y-p3.y)*(p1.z-o.z)
+        double t = ((p1.x-p2.x)*(p1.y-p3.y)*(p1.z-o.z)
                   +(p1.x-p3.x)*(p1.y-o.y)*(p1.z-p2.z)
                   +(p1.x-o.x)*(p1.y-p2.y)*(p1.z-p3.z)
                   -(p1.x-o.x)*(p1.y-p3.y)*(p1.z-p2.z)
                   -(p1.x-p3.x)*(p1.y-p2.y)*(p1.z-o.z)
                   -(p1.x-p2.x)*(p1.y-o.y)*(p1.z-p3.z))/A;
-        if(t>1e-3){
-            float beta = ((p1.x-o.x)*(p1.y-p3.y)*d.z
+        if(t>1e-4&&t<ray.max_distance){
+            double beta = ((p1.x-o.x)*(p1.y-p3.y)*d.z
                          +(p1.x-p3.x)*d.y*(p1.z-o.z)
                          +d.x*(p1.y-o.y)*(p1.z-p3.z)
                          -d.x*(p1.y-p3.y)*(p1.z-o.z)
                          -(p1.x-p3.x)*(p1.y-o.y)*d.z
                          -(p1.x-o.x)*d.y*(p1.z-p3.z))/A;
 
-            float gamma = ((p1.x-p2.x)*(p1.y-o.y)*d.z
+            double gamma = ((p1.x-p2.x)*(p1.y-o.y)*d.z
                           +(p1.x-o.x)*d.y*(p1.z-p2.z)
                           +d.x*(p1.y-p2.y)*(p1.z-o.z)
                           -d.x*(p1.y-o.y)*(p1.z-p2.z)
@@ -59,6 +59,6 @@ Intersection Triangle::isIntersected(const Ray3 &ray) {
                 result.normal = temp_normal;
             }
         }
-        return result;
     }
+    return result;
 }

@@ -15,7 +15,17 @@ public:
     explicit LightSource(const Color3& _color):color(_color){}
     virtual ~LightSource() = default;
     virtual LightRay3* traceLight(Vector3 v)=0;
+    void setHost(Object * h){
+        host = h;
+    }
     Color3 color;
+    Object * host;
+    virtual Intersection isIntersected(const Ray3& RAY){
+        if(!RAY.direct)
+            return Intersection();
+        else
+            return host->isIntersected(RAY);
+    };
 };
 
 

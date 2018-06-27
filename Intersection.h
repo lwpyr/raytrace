@@ -13,7 +13,7 @@ class Intersection {
 public:
     Intersection(){}
     ~Intersection(){}
-    float distance = 100000000;
+    double distance = 100000000;
     bool isHit = 0;
     Vector3 position;
     Vector3 normal;

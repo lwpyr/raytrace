@@ -15,7 +15,8 @@ class Vector3 {
 public:
     // constructor and destructor
     Vector3() = default;
-    Vector3(float X, float Y, float Z);
+    Vector3(const Vector3& ) = default;
+    Vector3(double X, double Y, double Z);
     ~Vector3() = default;
 
     // vector plus vector
@@ -23,15 +24,15 @@ public:
     Vector3 operator-(const Vector3& v) const;
 
     // vector times scalar
-    Vector3 operator*(const float& n) const;
-    friend Vector3 operator*(const float& n, const Vector3& v);
+    Vector3 operator*(const double& n) const;
+    friend Vector3 operator*(const double& n, const Vector3& v);
 
     // vector divide scalar
-    Vector3 operator/(const float& n) const;
-    friend Vector3 operator/(const float& n, const Vector3& v);
+    Vector3 operator/(const double& n) const;
+    friend Vector3 operator/(const double& n, const Vector3& v);
 
     // vector dot product
-    float operator*(const Vector3& v2) const;
+    double operator*(const Vector3& v2) const;
 
     // vector cross product
     Vector3 operator^(const Vector3& v2) const;
@@ -40,13 +41,13 @@ public:
     Vector3 abs() const;
 
     // maximum element
-    float max() const;
+    double max() const;
 
     // minimum element
-    float min() const;
+    double min() const;
 
     // sqrt(v.x^2+v.y^2+v.z^2)
-    float getLength() const;
+    double getLength() const;
 
     // normalize the length to 1
     Vector3 normalize() const;
@@ -55,7 +56,7 @@ public:
     Vector3 operator-() const;
 
     // calculate the distance between 2 vectors(points)
-    float getDist(Vector3& v) const;
+    double getDist(Vector3& v) const;
 
     // project
     Vector3 project(Vector3& v) const;
@@ -64,9 +65,9 @@ public:
     friend std::ostream& operator<<(std::ostream&out, Vector3 &v);
 
     // x,y,z
-    float x;
-    float y;
-    float z;
+    double x;
+    double y;
+    double z;
 };
 
 

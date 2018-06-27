@@ -10,7 +10,7 @@ class Vector2 {
 public:
     // constructor and destructor
     Vector2() = default;
-    Vector2(float X, float Y):x(X),y(Y){}
+    Vector2(double X, double Y):x(X),y(Y){}
     ~Vector2() = default;
     int x;
     int y;

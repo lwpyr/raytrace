@@ -13,9 +13,16 @@ public:
     Vector3 origin;
     Vector3 direction;
 
+    // whether or not this ray is emitted from the camera
+    bool direct = false;
+    bool inobject = false;
+    double through = 1;
+
     // constructor and destructor
     Ray3() = default;
+    Ray3(bool in):inobject(in){}
     Ray3(const Vector3& o, const Vector3& d);
+    Ray3(const Vector3& o, const Vector3& d, bool dir);
     ~Ray3() = default;
 
     // set ray origin
@@ -32,7 +39,7 @@ public:
     Vector3 getDirection() const;
     Vector3 getPoint(const double& t) const;
 
-    float max_distance = 100000000;
+    double max_distance = 100000000;
 
 };
 

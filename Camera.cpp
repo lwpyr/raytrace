@@ -4,7 +4,7 @@
 
 #include "Camera.h"
 
-Camera::Camera(const Vector3& _eye,const Vector3& _front,const Vector3& _up,float angle_x,float angle_y) {
+Camera::Camera(const Vector3& _eye,const Vector3& _front,const Vector3& _up,double angle_x,double angle_y) {
     eye=_eye;
     frontDirection=_front.normalize();
     upDirection = _up.normalize();
@@ -24,15 +24,14 @@ void Camera::setCanvas(int width, int height) {
 }
 
 Ray3 Camera::generateRay(bool &working, int& x, int& y) {
-
     last_x = scan_x;
     last_y = scan_y;
 
     x = last_x;
     y = last_y;
 
-    float rate_x = 2*(scan_x+0.5)*dx - 1;
-    float rate_y = 2*(scan_y+0.5)*dy - 1;
+    double rate_x = 2*(scan_x+0.5)*dx - 1;
+    double rate_y = 2*(scan_y+0.5)*dy - 1;
 
     Vector3 direction = (rate_x*v_ref_len*rightDirection+rate_y*h_ref_len*upDirection+frontDirection);
 
@@ -47,7 +46,30 @@ Ray3 Camera::generateRay(bool &working, int& x, int& y) {
         canvas.finish();
     }
 
-    return Ray3(eye, direction);
+    return Ray3(eye, direction, true);
+}
+
+Ray3 Camera::generateRay(int i) {
+    int x = i % canvas.W;
+    int y = i / canvas.H;
+
+    double rate_x = 2*(x+0.5)*dx - 1;
+    double rate_y = 2*(y+0.5)*dy - 1;
+
+    Vector3 direction = (rate_x*v_ref_len*rightDirection+rate_y*h_ref_len*upDirection+frontDirection);
+    return Ray3(eye, direction, true);
+}
+
+Ray3 Camera::generateRay(int x, int y) {
+    double rate_x = 2*(x+0.5)*dx - 1;
+    double rate_y = 2*(y+0.5)*dy - 1;
+
+    Vector3 direction = (rate_x*v_ref_len*rightDirection+rate_y*h_ref_len*upDirection+frontDirection);
+    return Ray3(eye, direction, true);
+}
+
+int Camera::rayNum() {
+    return canvas.W * canvas.H;
 }
 
 void Camera::resetScan() {

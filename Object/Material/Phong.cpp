@@ -5,7 +5,7 @@
 #include "Phong.h"
 #include <algorithm>
 
-Phong::Phong(const Color3 &_diffuse, const Color3 &_specular, float _shininess, float reflect, float refract) {
+Phong::Phong(const Color3 &_diffuse, const Color3 &_specular, double _shininess, double reflect, double refract) {
     diffuse = _diffuse;
     specular = _specular;
     shininess = _shininess;
@@ -13,12 +13,12 @@ Phong::Phong(const Color3 &_diffuse, const Color3 &_specular, float _shininess, 
     refractivity = refract;
 }
 
-Color3 Phong::sample(const Ray3 &ray, const LightRay3 *light, const float distance, const Vector3 &normal) {
+Color3 Phong::sample(const Ray3 &ray, const LightRay3 *light, const double distance, const Vector3 &normal) {
     Vector3 lightDir = light->getDirection();
-    float NdotL = normal*lightDir;
+    double NdotL = normal*lightDir;
     Vector3 H = (lightDir-ray.getDirection()).normalize();
-    float NdotH = normal*H;
-    Color3 diffuseTerm = this->diffuse*std::max(NdotL, (float)0);
-    Color3 specularTerm = this->specular*(pow(std::max(NdotH, (float)0), this->shininess));
-    return light->get_color(distance)*(diffuseTerm+specularTerm)+ambient;
+    double NdotH = normal*H;
+    Color3 diffuseTerm = this->diffuse*std::max(NdotL, (double)0);
+    Color3 specularTerm = this->specular*(pow(std::max(NdotH, (double)0), this->shininess));
+    return light->get_color(distance)*(diffuseTerm+specularTerm);
 }

@@ -13,6 +13,12 @@ Ray3::Ray3(const Vector3& o,const Vector3& d){
     direction=d.normalize();
 }
 
+Ray3::Ray3(const Vector3& o,const Vector3& d, bool dir){
+    origin=o;
+    direction=d.normalize();
+    direct = dir;
+}
+
 void Ray3::setOrigin(const Vector3& o){
     origin = o;
 }

@@ -13,12 +13,15 @@ class Camera{
 public:
     // constructor and destructor
     ~Camera() = default;
-    Camera(const Vector3& _eye,const Vector3& _front,const Vector3& _up,float angle_x,float angle_y);
+    Camera(const Vector3& _eye,const Vector3& _front,const Vector3& _up,double angle_x,double angle_y);
 
     void setCanvas(int width, int height);
 
     // this two functions must be used in pairs !!!
     Ray3 generateRay(bool& working, int& x, int& y);
+    Ray3 generateRay(int i);
+    Ray3 generateRay(int x, int y);
+    int rayNum();
     void recieveColor(Color3& color);
 
     void resetScan();
@@ -30,10 +33,10 @@ public:
     Vector3 frontDirection;
     Vector3 upDirection;
     Vector3 rightDirection;
-    float angleX;
-    float angleY;
-    float v_ref_len;
-    float h_ref_len;
+    double angleX;
+    double angleY;
+    double v_ref_len;
+    double h_ref_len;
 
     Canvas canvas;
 
@@ -42,8 +45,8 @@ private:
     int scan_y = 0;
     int last_x = 0;
     int last_y = 0;
-    float dx;
-    float dy;
+    double dx;
+    double dy;
 };
 
 

@@ -12,7 +12,7 @@ class Sphere: public Object {
 public:
     Sphere()= default;
     Sphere(Vector3 center,double radius);
-    Sphere(Sphere& s) = default;
+    Sphere(const Sphere& s) = default;
     virtual Vector3 getNormal(Vector3 point);
     virtual Intersection isIntersected(const Ray3& RAY);
     virtual ~Sphere()= default;
