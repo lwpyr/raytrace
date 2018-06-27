@@ -7,14 +7,21 @@
 + OpenCV (optional)
 + GLFW3 - OpenGL (optional)
 
-To compile correctly, at least one of OpenCV and OpenGL is needed, and you can specify the option in the **CMakeLists.txt** file
+To compile correctly, at least one of OpenCV and OpenGL is needed for rendering, and you can specify the option in the **CMakeLists.txt** file.
 
 ### Instruction
+
+0. Clone the repository
+
+   ```shell
+   git glone git@github.com:lw396285v/raytrace.git
+   cd raytrace
+   ```
 
 1. Check **CMakeLists.txt**, and set build option, for example if you only have OpenGL library installed, you can set:    
 
    ```shell
-   set(BUILD_WITH_OPENGL 1)
+   set(BUILD_WITH_OPENGL 1) # which means you have OpenGL library
    set(BUILD_WITH_OPENCV 0) # which means you don't have OpenCV library
    ```
 
