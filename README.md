@@ -58,7 +58,7 @@ Each executable will generate a scene, and they are shown here
 > 2. The planes and the sphere have different mirror property (reflection).
 > 3. The sphere has glass property (transparency).
 >
-> ![preview](/home/liwen/Documents/CG/unit_test.png)
+> ![preview](unit_test.png)
 
 
 
@@ -73,7 +73,7 @@ Each executable will generate a scene, and they are shown here
 >
 > But with one point light source, the shadow is *sharp*.
 >
-> ![preview](/home/liwen/Documents/CG/single_lightsource.png)
+> ![preview](single_lightsource.png)
 
 
 
@@ -81,7 +81,7 @@ Each executable will generate a scene, and they are shown here
 
 > Compare to `tracer` , `tracer_single` has a different light source. In face, **9 point light sources** are used to simulate **1 circle light source**. and we can find that the shadow become *soft*.
 >
-> ![tracer_single](/home/liwen/Documents/CG/single_multi-lightsource.png)
+> ![tracer_single](single_multi-lightsource.png)
 
 
 
@@ -89,7 +89,7 @@ Each executable will generate a scene, and they are shown here
 
 > I add another **circle light source** (In fact, there are total 12 point light source) in the scene. Maybe it's too bright?
 >
-> ![tracer_single](/home/liwen/Documents/CG/double_multi-lightsource.png)
+> ![tracer_single](double_multi-lightsource.png)
 
 
 
