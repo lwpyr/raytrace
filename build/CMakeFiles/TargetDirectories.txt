@@ -1,6 +1,0 @@
-/home/liwen/Documents/CG/raytrace/build/CMakeFiles/rebuild_cache.dir
-/home/liwen/Documents/CG/raytrace/build/CMakeFiles/edit_cache.dir
-/home/liwen/Documents/CG/raytrace/build/CMakeFiles/tracer_single.dir
-/home/liwen/Documents/CG/raytrace/build/CMakeFiles/tracer_double.dir
-/home/liwen/Documents/CG/raytrace/build/CMakeFiles/UnitTest.dir
-/home/liwen/Documents/CG/raytrace/build/CMakeFiles/tracer.dir
