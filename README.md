@@ -98,5 +98,11 @@ Each executable will generate a scene, and they are shown here
 >
 > ![tracer_single](double_multi-lightsource.png)
 
+### Code structure
 
+![code structure](C:\Users\XPS\Desktop\李文_117033910063\raytrace\code_structure.png)
+
+### Problems encountered
+
+During the coding procedure, I met many math problems (mainly **solid geometry**). And I use **MATLAB** to test my calculation and it works well.
 
