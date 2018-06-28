@@ -86,4 +86,5 @@ Vector3 Vector3::project(Vector3 &v) const {
 
 std::ostream& operator<<(std::ostream &out, Vector3 &v) {
     out<<'('<<v.x<<' '<<v.y<<' '<<v.z<<')';
+    return out;
 }
