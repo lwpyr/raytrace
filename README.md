@@ -30,7 +30,8 @@ To compile correctly, at least one of OpenCV and OpenGL is needed for rendering,
    ```shell
    mkdir build
    cmake ..
-   make all -j8
+   make all -j8 
+   # on Windows it may be slightly different, after "cmake ..", you may need to use Visual Studio to open the project and build.
    ```
 
 3. After building, you will find 4 executable files
@@ -100,7 +101,7 @@ Each executable will generate a scene, and they are shown here
 
 ### Code structure
 
-![code structure](C:\Users\XPS\Desktop\李文_117033910063\raytrace\code_structure.png)
+![code structure](code_structure.png)
 
 ### Problems encountered
 
